@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SaleReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5efbdea1-9c6e-464a-a30e-d01c447f2b1a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#04548C">
+		<pen lineColor="#FFFFFF"/>
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<pen lineStyle="Solid" lineColor="#00104F"/>
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="PurchaseOrderSet" uuid="2cebfb10-99ea-42a3-b06d-2a35113ad37a">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="ItemsDatasource" uuid="5f223182-d520-47a0-8e33-62565c63fc7e">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="id" class="java.lang.Long"/>
+		<field name="itemName" class="java.lang.String"/>
+		<field name="unitSaleAmount" class="java.lang.Double"/>
+		<field name="unit.name" class="java.lang.String"/>
+		<field name="grandTotal" class="java.lang.Double"/>
+		<field name="qty" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="ItemsDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="gstNo" class="java.lang.String"/>
+	<parameter name="addressLine1" class="java.lang.String"/>
+	<parameter name="addressLine2" class="java.lang.String"/>
+	<parameter name="phoneNo" class="java.lang.String"/>
+	<parameter name="faxNo" class="java.lang.String"/>
+	<parameter name="orderDate" class="java.util.Date"/>
+	<parameter name="totalAmount" class="java.lang.Double"/>
+	<parameter name="totalDiscountAmount" class="java.lang.Double"/>
+	<parameter name="totalTaxAmount" class="java.lang.Double"/>
+	<parameter name="totalTaxPercentage" class="java.lang.Boolean"/>
+	<parameter name="totalTaxAmountDisplay" class="java.lang.Double"/>
+	<parameter name="taxType" class="java.lang.String"/>
+	<parameter name="totalIntegratedTaxAmount" class="java.lang.Double"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="142" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="230" height="30" forecolor="#04548C" uuid="f4d6f411-01f6-4b87-b2f5-30af77bf1b7a"/>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPANY NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="60" height="18" uuid="281c5a29-db6f-4707-8a8d-841a01790d89">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GST NO :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="30" width="170" height="18" uuid="fc392b91-040b-4857-a2fb-1f15d5d46fd4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gstNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="48" width="230" height="18" uuid="c4af0261-fa31-4c93-91b0-053ae37018da"/>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{addressLine1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="66" width="230" height="18" uuid="b89e70f7-b8ec-44c7-93db-4af117ce2c0c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADDRESS LINE 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="84" width="80" height="18" uuid="1bb58f6e-04bd-43ac-9c0e-42a3ef9684d1"/>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PHONE NO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="84" width="150" height="18" uuid="d88b02c1-d7ca-4b01-a917-9830c05fd81f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9496461374]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="103" width="80" height="18" uuid="6cbaba27-4fbb-4714-85e8-5810ef5b5eea"/>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FAX NO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="103" width="150" height="18" uuid="ce2a1586-39e5-4c71-bb0d-730ead233f8c"/>
+				<textElement>
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9496461374]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="381" y="0" width="181" height="21" forecolor="#04548C" backcolor="#04548C" uuid="1cccac3f-6388-4824-9e88-6ca782377eca"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="0" width="184" height="21" forecolor="#FFFFFF" uuid="cc640b74-74fc-488f-803a-748fcc925cdf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BILL DETAILS]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="381" y="20" width="59" height="19" uuid="45c35a07-cead-4a62-8a2e-a7bf367a49e4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="20" width="60" height="19" uuid="8a1f5118-1521-4c58-af71-359b0d216e5b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[BILL NO :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="440" y="20" width="122" height="19" uuid="80b5b597-7e59-4299-98b5-837b01f00b3a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="440" y="20" width="122" height="19" uuid="2a3ba842-285d-4920-b3f9-f72c3b5e732f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[0125214]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="381" y="39" width="59" height="19" uuid="52b86966-c118-4687-989d-984ef0c8b9ce"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="39" width="60" height="19" uuid="b50112c3-5d1c-4091-94b2-3ceb9e775c06"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[DATE :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="440" y="39" width="122" height="19" uuid="924decd5-d6c5-4d35-abf5-462cf28b2d7f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="440" y="40" width="122" height="19" uuid="02999676-6f84-4a81-bba0-762966df03be"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[07-JAN-2017]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="381" y="58" width="59" height="19" uuid="faf0919c-a5ee-4a0b-bea2-ea6846c96b38"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="58" width="60" height="19" uuid="2c03dcf8-60a4-4ae5-ba5e-92ae7fc605d9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[SALESMAN :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="440" y="58" width="122" height="19" uuid="8f178b1a-e1b5-414d-a7d8-1f98f5f96e54"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="440" y="60" width="122" height="17" uuid="2e8b0ebb-d1e1-4a54-a0b8-a206819487ed"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[SALESMAN Name]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="381" y="77" width="59" height="19" uuid="76778aee-72fc-4459-9f5f-cc5993c09270"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="77" width="60" height="19" uuid="1f534eb4-a917-4ead-8ea2-648c6ef47477"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="440" y="77" width="122" height="19" uuid="e491ac2c-17c4-4194-8ee1-3cc74e2d336b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="440" y="77" width="122" height="19" uuid="4929cea6-a929-4025-899f-aa108148e7f0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[SUPPLIER Name]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="39" splitType="Stretch">
+			<rectangle>
+				<reportElement x="70" y="3" width="410" height="30" forecolor="#04548C" backcolor="#04548C" uuid="c0660b02-6e1a-4230-8d61-0c95a34ea7fb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="70" y="3" width="410" height="30" forecolor="#FFFFFF" backcolor="#04548C" uuid="b0e54351-3a6b-45d7-868c-0f1dd70702ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode" size="18"/>
+				</textElement>
+				<text><![CDATA[PURCHASE ORDER]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="277" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="10" width="560" height="250" uuid="65c2c36f-5977-4fc2-b4a5-6922fcd365b7">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="ItemsDatasource" uuid="b3b8eeb3-975f-4c1a-af80-39ade798f560">
+						<dataSourceExpression><![CDATA[$P{ItemsDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="498b3838-0e06-409d-a5a2-d1945ed48a64">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="30" forecolor="#FFFFFF" uuid="700a7561-5a25-49d6-b899-e6e529ec710c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Lucida Sans Unicode" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="30" uuid="a1b0d798-b455-458b-b751-030834fe6195"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="a398631c-c6a3-4f07-8918-db63de5fda9d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" forecolor="#FFFFFF" uuid="aa9be179-f8fd-49f7-80f2-c9e857e0c5ef"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Lucida Sans Unicode" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ITEM NAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="30" uuid="ed520970-9e13-436f-a776-ff79571b747c"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="db6d54fb-f4bb-4748-b875-90e5215c6275">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" forecolor="#FFFFFF" uuid="7c59e208-5239-4718-b8fd-2b8b2cd4e992"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Lucida Sans Unicode" isBold="true"/>
+								</textElement>
+								<text><![CDATA[UNIT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="1b6b00fa-ae21-4794-ba8a-4a2f8bc510c2"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{unit.name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="a4c94114-91df-41de-96ee-a12d2e47641d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="30" forecolor="#FFFFFF" uuid="79fdabf1-df68-43e2-9fc5-7e27987137d5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Lucida Sans Unicode" isBold="true"/>
+								</textElement>
+								<text><![CDATA[QTY]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="30" uuid="f34c747c-a9f8-4427-b972-5e0b269ea6bb"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="dd40fbbe-2f13-4881-9252-dd5246a81124">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" forecolor="#FFFFFF" uuid="b1d193a3-1b6a-48d0-9a1f-40c007510d54"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Lucida Sans Unicode" isBold="true"/>
+								</textElement>
+								<text><![CDATA[UNIT RATE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="b25aa382-b5df-4f20-bff1-e42103cda35c"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{unitSaleAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="c563a5e9-c37b-45ec-991a-aeb9c10855f3">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" forecolor="#FFFFFF" uuid="ac5f4384-3bc5-475f-940d-f8a8e5511ead"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Lucida Sans Unicode" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL AMOUNT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="2c3ed2b4-15ec-4f97-a2f5-264afca6cf0f"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{grandTotal}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="109" splitType="Stretch">
+			<rectangle>
+				<reportElement x="320" y="10" width="110" height="19" uuid="4e9b0622-ce33-46f6-8f69-b6d55f142812"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="320" y="10" width="110" height="19" uuid="3bafbc27-fe54-44c8-85c5-22cd8fec5c56"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[TOTAL AMOUNT :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="320" y="29" width="110" height="19" uuid="5e310810-ca25-473b-9a24-1bcac614006d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="320" y="28" width="110" height="19" uuid="3f68ab09-ebc7-42c2-a97b-932df533964d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[TOTAL EXPENCES :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="320" y="47" width="110" height="19" uuid="b59a8615-a3d4-4c27-b1f0-b750333e465d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="320" y="48" width="110" height="19" uuid="7cb0580d-3ddf-4bce-a4cd-e3512052a26d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[TOTAL DISCOUNT :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="320" y="66" width="110" height="34" uuid="e8617db3-3266-47e3-b9b7-88c519c3e797"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="320" y="67" width="110" height="33" uuid="63a0ea97-93a7-4b08-8fc9-86e8e00ef585"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode" size="12" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[GRAND TOTAL :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="430" y="10" width="122" height="19" uuid="34809613-623c-4907-9fef-01c7d536507a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="430" y="10" width="122" height="19" uuid="cfc7d921-b276-4c25-af90-6b375f770a77"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1010.00]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="430" y="29" width="122" height="19" uuid="0092e981-bca6-47a6-a8dc-189867e9b160"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="430" y="30" width="122" height="17" uuid="63d03c41-1960-406a-94b1-6b8d75f1e15e"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[0.00]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="430" y="47" width="122" height="19" uuid="672d3148-8a0a-4d2c-b16e-f9fe615a1f04"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="430" y="48" width="122" height="19" uuid="23f541ee-0680-4ffe-9bf4-a06361ce021b"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[10.00]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="430" y="66" width="122" height="34" uuid="b792e4ff-b5a1-473b-b6f9-82b7602a3846"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="430" y="67" width="122" height="33" uuid="5fa5ec06-32fa-4b9f-9a8f-bbac320b3f40"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode" size="12" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[1000.00]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="10" width="281" height="20" forecolor="#04548C" backcolor="#04548C" uuid="ff5b24c9-7252-4620-9aee-5db24edcba27"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="10" width="281" height="18" forecolor="#FFFFFF" uuid="94a8f1de-bfb2-49a9-bc1d-c54a88a885fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lucida Sans Unicode" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REMARKS]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="30" width="281" height="70" uuid="f1f250ce-b424-4d3a-b725-e23641d84b92"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="30" width="281" height="70" uuid="d3bf7ffa-ef32-4651-b420-f97d12c41c3b"/>
+				<box topPadding="4" leftPadding="5" bottomPadding="4" rightPadding="5"/>
+				<textElement>
+					<font fontName="Lucida Sans Unicode"/>
+				</textElement>
+				<text><![CDATA[User Text]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
